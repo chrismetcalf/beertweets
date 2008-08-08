@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statuses type="array">
+  <status>
+    <created_at>Thu Jun 05 13:12:50 +0000 2008</created_at>
+    <id>827637175</id>
+    <text>@beertweets the hashtags are for beer names? breweries?</text>
+    <source>&lt;a href="http://www.twhirl.org/"&gt;twhirl&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <in_reply_to_status_id>827465039</in_reply_to_status_id>
+    <in_reply_to_user_id>15005030</in_reply_to_user_id>
+    <favorited>false</favorited>
+    <user>
+      <id>1293051</id>
+      <name>Aneel L</name>
+      <screen_name>aneel</screen_name>
+      <location>brooklyn</location>
+      <description>am: geek, agitator | into: biz, tech services, nyc | speak: only for myself</description>
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/54944913/aneel3-tl_normal.JPG</profile_image_url>
+      <url>http://joga.be</url>
+      <protected>false</protected>
+      <followers_count>281</followers_count>
+    </user>
+  </status>
+  <status>
+    <created_at>Thu Jun 05 04:01:30 +0000 2008</created_at>
+    <id>827376637</id>
+    <text>@beertweets Full Sail Nut Brown Ale. ***** Lots of chocolate and coffee, great mouth feel. ~$4/22oz bottle. http://tinyurl.com/6gdklo</text>
+    <source>&lt;a href="http://www.twhirl.org/"&gt;twhirl&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <in_reply_to_status_id>826912058</in_reply_to_status_id>
+    <in_reply_to_user_id>15005030</in_reply_to_user_id>
+    <favorited>false</favorited>
+    <user>
+      <id>665533</id>
+      <name>Chris Metcalf</name>
+      <screen_name>chrismetcalf</screen_name>
+      <location>Seattle, WA</location>
+      <description>TPM for blist.com, all around geek</description>
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/36586952/n4804855_8171_normal.jpg</profile_image_url>
+      <url>http://chrismetcalf.net/blog/</url>
+      <protected>false</protected>
+      <followers_count>156</followers_count>
+    </user>
+  </status>
+</statuses>

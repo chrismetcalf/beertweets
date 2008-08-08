@@ -1,0 +1,17 @@
+Tweet Format
+============
+
+@beertweets Foo bar quo *** quux link link #tag #tag http://www.link.com/uri
+
+Breakdown:
+----------
+- @beertweets - Duh
+- Text - Handled normally
+- *** - Review stars. Parsed and indexed
+- #tags - Hashtags. Parsed, indexed, and linked to hashtags
+- http://www.link.com/uri - Link. Parsed and linked (What to do with images)
+
+Database
+========
+
+

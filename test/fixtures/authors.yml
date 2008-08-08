@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  twitter_id: 123 
+  name: Abraham Lincoln
+  screen_name: alincoln
+  location: Illonois
+  description: Dead president 
+  url: http://presidents.gov/prez/alincoln
+  image_url: http://presidents.gov/prez/alincoln/avatar.jpg
+  has_many: 
+
+two:
+  twitter_id: 124 
+  name: George Washington
+  screen_name: gwashington 
+  location: Virginia
+  description: I hate cherry trees
+  url: http://presidents.gov/prez/gwashington
+  image_url: http://presidents.gov/prez/gwashington/avatar.jpg
+  has_many: 
+
+three:
+  twitter_id: 125 
+  name: George Bush
+  screen_name: gbush
+  location: Tejas
+  description: I hate Saddam
+  url: http://presidents.gov/prez/gbush
+  image_url: http://presidents.gov/prez/gbush/avatar.jpg
+  has_many: 

@@ -1,0 +1,401 @@
+# Logfile created on Wed Jun 04 23:38:11 -0700 2008  [4;36;1mSQL (0.148514)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001031)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.272900)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.257272)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.001210)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000605)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTweets (20080605064301)
+  [4;36;1mSQL (0.000500)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.174524)[0m   [0mCREATE TABLE "tweets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "createed_at" datetime DEFAULT NULL NULL, "text" varchar(255) DEFAULT NULL NULL, "source" varchar(255) DEFAULT NULL NULL, "user_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.011107)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080605064301')[0m
+  [4;35;1mSQL (0.001998)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001371)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000400)[0m   [0mPRAGMA index_list("tweets")[0m
+  [4;36;1mSQL (0.001225)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000957)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.432031)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.172291)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.001213)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000626)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTweets (20080605064301)
+  [4;36;1mSQL (0.000582)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.011898)[0m   [0mCREATE TABLE "tweets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "text" varchar(255) DEFAULT NULL NULL, "source" varchar(255) DEFAULT NULL NULL, "rating" integer DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.009053)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080605064301')[0m
+  [4;35;1mSQL (0.001151)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001356)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000384)[0m   [0mPRAGMA index_list("tweets")[0m
+  [4;36;1mTweet Create (0.001010)[0m   [0;1mINSERT INTO "tweets" ("rating", "updated_at", "text", "twitter_id", "source", "created_at") VALUES(4, '2008-06-05 07:23:48', '@beertweets foo bar quo quux', 1234, NULL, '2008-06-05 07:23:48')[0m
+  [4;36;1mSQL (0.002631)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001144)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTweets (20080605064301)
+  [4;36;1mSQL (0.001082)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080605072642)
+  [4;35;1mSQL (0.011221)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001006)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.223638)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "name" varchar(255) DEFAULT NULL NULL, "screen_name" varchar(255) DEFAULT NULL NULL, "location" varchar(255) DEFAULT NULL NULL, "description" varchar(255) DEFAULT NULL NULL, "image_url" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.279907)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080605072642')[0m
+  [4;35;1mSQL (0.001376)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001710)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000381)[0m   [0mPRAGMA index_list("tweets")[0m
+  [4;36;1mSQL (0.000354)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;36;1mTweet Load (0.002969)[0m   [0;1mSELECT * FROM "tweets" [0m
+  [4;35;1mUser Load (0.000785)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mUser Load (0.000780)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mUser Create (0.001058)[0m   [0mINSERT INTO "users" ("name", "image_url", "updated_at", "description", "twitter_id", "screen_name", "location", "created_at") VALUES('Abraham Lincoln', NULL, '2008-06-05 07:33:48', 'I wear a tall hat', 123, 'alincoln', 'Illinois', '2008-06-05 07:33:48')[0m
+  [4;36;1mUser Load (0.001768)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;36;1mUser Load (0.001798)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;36;1mSQL (0.004162)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.002246)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.210069)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.581920)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.001177)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001215)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000974)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.136690)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.010577)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.001224)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.003087)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.002555)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000643)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000487)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTweets (20080605064301)
+  [4;35;1mSQL (0.000488)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000933)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.186309)[0m   [0mCREATE TABLE "tweets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "text" varchar(255) DEFAULT NULL NULL, "source" varchar(255) DEFAULT NULL NULL, "rating" integer DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.156498)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080605064301')[0m
+Migrating to CreateAuthors (20080605072642)
+  [4;35;1mSQL (0.001061)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.135749)[0m   [0;1mCREATE TABLE "author" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "name" varchar(255) DEFAULT NULL NULL, "screen_name" varchar(255) DEFAULT NULL NULL, "location" varchar(255) DEFAULT NULL NULL, "description" varchar(255) DEFAULT NULL NULL, "image_url" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.010285)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080605072642')[0m
+  [4;36;1mSQL (0.001374)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001792)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000413)[0m   [0;1mPRAGMA index_list("author")[0m
+  [4;35;1mSQL (0.000428)[0m   [0mPRAGMA index_list("tweets")[0m
+  [4;36;1mSQL (0.001160)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001061)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.193279)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.136609)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.001166)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000626)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000511)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTweets (20080605064301)
+  [4;35;1mSQL (0.000493)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.015147)[0m   [0;1mCREATE TABLE "tweets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "text" varchar(255) DEFAULT NULL NULL, "source" varchar(255) DEFAULT NULL NULL, "rating" integer DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.010859)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080605064301')[0m
+Migrating to CreateAuthors (20080605072642)
+  [4;36;1mSQL (0.001107)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.015417)[0m   [0mCREATE TABLE "author" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "name" varchar(255) DEFAULT NULL NULL, "screen_name" varchar(255) DEFAULT NULL NULL, "location" varchar(255) DEFAULT NULL NULL, "description" varchar(255) DEFAULT NULL NULL, "image_url" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.011022)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080605072642')[0m
+  [4;35;1mSQL (0.001453)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001702)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000387)[0m   [0mPRAGMA index_list("author")[0m
+  [4;36;1mSQL (0.000782)[0m   [0;1mPRAGMA index_list("tweets")[0m
+  [4;36;1mSQL (0.001170)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000959)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.314442)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.133501)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.001137)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000672)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000497)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTweets (20080605064301)
+  [4;35;1mSQL (0.000498)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.012400)[0m   [0;1mCREATE TABLE "tweets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "text" varchar(255) DEFAULT NULL NULL, "source" varchar(255) DEFAULT NULL NULL, "rating" integer DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.008898)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080605064301')[0m
+Migrating to CreateAuthors (20080605145249)
+  [4;36;1mSQL (0.001120)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001191)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001101)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.325829)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.136696)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.001178)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000936)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000513)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTweets (20080605064301)
+  [4;35;1mSQL (0.001460)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.012867)[0m   [0;1mCREATE TABLE "tweets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "text" varchar(255) DEFAULT NULL NULL, "source" varchar(255) DEFAULT NULL NULL, "rating" integer DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.008836)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080605064301')[0m
+Migrating to CreateAuthors (20080605145249)
+  [4;36;1mSQL (0.001181)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.011383)[0m   [0mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "screen_name" integer DEFAULT NULL NULL, "location" varchar(255) DEFAULT NULL NULL, "image_url" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.008864)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080605145249')[0m
+  [4;35;1mSQL (0.001489)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001740)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000431)[0m   [0mPRAGMA index_list("authors")[0m
+  [4;36;1mSQL (0.000391)[0m   [0;1mPRAGMA index_list("tweets")[0m
+  [4;36;1mSQL (0.001551)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001032)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.390818)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.310394)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.001247)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001511)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000649)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTweets (20080605064301)
+  [4;35;1mSQL (0.000504)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.224295)[0m   [0;1mCREATE TABLE "tweets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "text" varchar(255) DEFAULT NULL NULL, "source" varchar(255) DEFAULT NULL NULL, "rating" integer DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.011745)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080605064301')[0m
+Migrating to CreateAuthors (20080605145249)
+  [4;36;1mSQL (0.001032)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.022786)[0m   [0mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "screen_name" integer DEFAULT NULL NULL, "location" varchar(255) DEFAULT NULL NULL, "image_url" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.011753)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080605145249')[0m
+  [4;35;1mSQL (0.001428)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001749)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000372)[0m   [0mPRAGMA index_list("authors")[0m
+  [4;36;1mSQL (0.000377)[0m   [0;1mPRAGMA index_list("tweets")[0m
+  [4;36;1mSQL (0.001054)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000944)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.568383)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.183612)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.001149)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000617)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000481)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTweets (20080605064301)
+  [4;35;1mSQL (0.000490)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.221587)[0m   [0;1mCREATE TABLE "tweets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "text" varchar(255) DEFAULT NULL NULL, "source" varchar(255) DEFAULT NULL NULL, "rating" integer DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.008972)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080605064301')[0m
+Migrating to CreateAuthors (20080605145249)
+  [4;36;1mSQL (0.001039)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.020974)[0m   [0mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "screen_name" integer DEFAULT NULL NULL, "location" varchar(255) DEFAULT NULL NULL, "image_url" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.031549)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080605145249')[0m
+  [4;35;1mSQL (0.001328)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001648)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000374)[0m   [0mPRAGMA index_list("authors")[0m
+  [4;36;1mSQL (0.000346)[0m   [0;1mPRAGMA index_list("tweets")[0m
+  [4;36;1mSQL (0.003048)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001401)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001276)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTweets (20080605064301)
+  [4;35;1mSQL (0.001265)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAuthors (20080605145249)
+  [4;36;1mSQL (0.001289)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000951)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.001363)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001724)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000384)[0m   [0;1mPRAGMA index_list("authors")[0m
+  [4;35;1mSQL (0.000373)[0m   [0mPRAGMA index_list("tweets")[0m
+  [4;36;1mSQL (0.001169)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000963)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.434470)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.029462)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.001231)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000631)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000490)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTweets (20080605064301)
+  [4;35;1mSQL (0.000576)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.173021)[0m   [0;1mCREATE TABLE "tweets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "text" varchar(255) DEFAULT NULL NULL, "source" varchar(255) DEFAULT NULL NULL, "rating" integer DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.016744)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080605064301')[0m
+Migrating to CreateAuthors (20080605145249)
+  [4;36;1mSQL (0.001068)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.016963)[0m   [0mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "screen_name" varchar(255) DEFAULT NULL NULL, "name" varchar(255) DEFAULT NULL NULL, "description" varchar(255) DEFAULT NULL NULL, "url" varchar(255) DEFAULT NULL NULL, "location" varchar(255) DEFAULT NULL NULL, "image_url" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.013422)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080605145249')[0m
+  [4;35;1mSQL (0.001419)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001700)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000388)[0m   [0mPRAGMA index_list("authors")[0m
+  [4;36;1mSQL (0.000378)[0m   [0;1mPRAGMA index_list("tweets")[0m
+  [4;36;1mAuthor Create (0.001128)[0m   [0;1mINSERT INTO "authors" ("name", "image_url", "updated_at", "url", "description", "twitter_id", "screen_name", "location", "created_at") VALUES('Abraham Lincoln', 'http://img.com/img.jpg', '2008-06-05 15:11:32', 'http://presidents.gov/dead/alincoln', 'dead president', 123, 'alicoln', 'Illionois', '2008-06-05 15:11:32')[0m
+  [4;35;1mTweet Create (0.000696)[0m   [0mINSERT INTO "tweets" ("rating", "updated_at", "text", "twitter_id", "source", "created_at") VALUES(3, '2008-06-05 15:11:32', 'This is a test', 456, 'SMS', '2008-06-05 15:11:32')[0m
+  [4;36;1mTweet Load (0.002888)[0m   [0;1mSELECT * FROM "tweets" [0m
+  [4;35;1mTweet Load (0.001587)[0m   [0mSELECT * FROM "tweets" [0m
+  [4;36;1mTweet Load (0.001618)[0m   [0;1mSELECT * FROM "tweets" [0m
+  [4;35;1mAuthor Load (0.001829)[0m   [0mSELECT * FROM "authors" [0m
+  [4;36;1mTweet Load (0.000000)[0m   [0;1mSQLite3::SQLException: no such column: tweets.author_id: SELECT * FROM "tweets" WHERE ("tweets".author_id = 1) [0m
+  [4;36;1mSQL (0.001262)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000938)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.265311)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.141501)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.001199)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000622)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000491)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTweets (20080605064301)
+  [4;35;1mSQL (0.000498)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.013934)[0m   [0;1mCREATE TABLE "tweets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "text" varchar(255) DEFAULT NULL NULL, "source" varchar(255) DEFAULT NULL NULL, "rating" integer DEFAULT NULL NULL, "author_id" integer DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.012039)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080605064301')[0m
+Migrating to CreateAuthors (20080605145249)
+  [4;36;1mSQL (0.001014)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.019796)[0m   [0mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "screen_name" varchar(255) DEFAULT NULL NULL, "name" varchar(255) DEFAULT NULL NULL, "description" varchar(255) DEFAULT NULL NULL, "url" varchar(255) DEFAULT NULL NULL, "location" varchar(255) DEFAULT NULL NULL, "image_url" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.011967)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080605145249')[0m
+  [4;35;1mSQL (0.002297)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001671)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000376)[0m   [0mPRAGMA index_list("authors")[0m
+  [4;36;1mSQL (0.000428)[0m   [0;1mPRAGMA index_list("tweets")[0m
+  [4;36;1mAuthor Load (0.002092)[0m   [0;1mSELECT * FROM "authors" [0m
+  [4;35;1mAuthor Create (0.001051)[0m   [0mINSERT INTO "authors" ("name", "image_url", "updated_at", "url", "description", "twitter_id", "screen_name", "location", "created_at") VALUES(NULL, NULL, '2008-06-05 15:26:12', NULL, NULL, NULL, 'alincoln', NULL, '2008-06-05 15:26:12')[0m
+  [4;36;1mTweet Create (0.000988)[0m   [0;1mINSERT INTO "tweets" ("rating", "updated_at", "text", "twitter_id", "author_id", "source", "created_at") VALUES(NULL, '2008-06-05 15:26:14', 'This is a test', NULL, 1, NULL, '2008-06-05 15:26:14')[0m
+  [4;36;1mTweet Load (0.002990)[0m   [0;1mSELECT * FROM "tweets" [0m
+  [4;35;1mAuthor Load (0.001744)[0m   [0mSELECT * FROM "authors" WHERE ("authors"."id" = 1) [0m
+  [4;36;1mSQL (0.001168)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000984)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.237193)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.134358)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.001160)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000668)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000498)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTweets (20080605064301)
+  [4;35;1mSQL (0.000491)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.011856)[0m   [0;1mCREATE TABLE "tweets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer NOT NULL, "created_at" datetime DEFAULT NULL NULL, "text" varchar(255) NOT NULL, "source" varchar(255) DEFAULT NULL NULL, "rating" integer DEFAULT NULL NULL, "author_id" integer NOT NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.008885)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080605064301')[0m
+Migrating to CreateAuthors (20080605145249)
+  [4;36;1mSQL (0.001054)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.011319)[0m   [0mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "screen_name" varchar(255) DEFAULT NULL NULL, "name" varchar(255) DEFAULT NULL NULL, "description" varchar(255) DEFAULT NULL NULL, "url" varchar(255) DEFAULT NULL NULL, "location" varchar(255) DEFAULT NULL NULL, "image_url" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.008895)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080605145249')[0m
+  [4;35;1mSQL (0.001434)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002700)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000380)[0m   [0mPRAGMA index_list("authors")[0m
+  [4;36;1mSQL (0.000370)[0m   [0;1mPRAGMA index_list("tweets")[0m
+  [4;36;1mTweet Load (0.002498)[0m   [0;1mSELECT * FROM "tweets" [0m
+  [4;36;1mSQL (0.003107)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001395)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000977)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.001363)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001867)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000380)[0m   [0mPRAGMA index_list("authors")[0m
+  [4;36;1mSQL (0.000367)[0m   [0;1mPRAGMA index_list("tweets")[0m
+  [4;35;1mSQL (0.000872)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000837)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.176241)[0m   [0mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer DEFAULT NULL NULL, "screen_name" varchar(255) DEFAULT NULL NULL, "name" varchar(255) DEFAULT NULL NULL, "description" varchar(255) DEFAULT NULL NULL, "url" varchar(255) DEFAULT NULL NULL, "location" varchar(255) DEFAULT NULL NULL, "image_url" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.001221)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.138188)[0m   [0mCREATE TABLE "tweets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "twitter_id" integer NOT NULL, "created_at" datetime DEFAULT NULL NULL, "text" varchar(255) NOT NULL, "source" varchar(255) DEFAULT NULL NULL, "rating" integer DEFAULT NULL NULL, "author_id" integer NOT NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.001499)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.011837)[0m   [0mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;36;1mSQL (0.011700)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.001729)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000617)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (0.009885)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20080605145249')[0m
+  [4;36;1mSQL (0.010641)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20080605064301')[0m

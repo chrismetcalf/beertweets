@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  twitter_id: 1
+  createed_at: 2008-06-04 23:43:01
+  text: This is a test
+  source: MyString
+  author_id: 1
+
