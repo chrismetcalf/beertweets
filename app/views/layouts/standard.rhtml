@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”>		
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>@beertweets - we drink and microblog so you don't have to</title>
+    <%= stylesheet_link_tag "style" %>
+  </head>
+  <body>
+    <div id="wrapper">    
+      <h1 id="title"><a href="/">@beertweets</a></h1>
+      <h2 id="subtitle">we drink and microblog so you don't have to</h2>
+
+
+    
+      <div id="content">
+        <%= yield %>
+      </div>
+    
+      <p id="meta">
+        <a href="/archive">Archive</a> &middot;
+        <a href="/rss">RSS</a> &middot;
+        Theme by <a href="http://novembird.com/themes/">Novembird</a>
+      </p>
+    </div>
+  </body>
+</html>

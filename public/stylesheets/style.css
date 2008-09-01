@@ -1,0 +1,65 @@
+body {
+	background: #fff;
+	color: #000;
+	font: 16px 'Helvetica','Arial',serif;
+	margin: 1em;
+	margin-left: 5em;
+}
+
+#wrapper {
+	width: 500px;
+}
+
+a {
+	color: #828282;
+	text-decoration: none;
+}
+
+h1 {
+	background: url('/images/beer.jpg') no-repeat;
+	font-size: 4em;
+	line-height: 64px;
+	margin: .25em auto;
+	padding-left: 72px;
+}
+
+h1 a {
+	color: black;
+}
+
+h2 {
+	font-size: 2em;
+	margin: .5em auto;
+}
+
+h3 {
+	font-size: 1.5em;
+	margin: .75em auto;
+}
+
+ul.chat, ul.chat li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+p.reblog {
+	font-size: .69em;
+}
+
+h3#navi {
+	text-align: center;
+}
+
+p#meta {
+	font-size: .69em;
+	text-align: center;
+}
+
+img.author_image {
+	border: none;
+}
+
+.author_name {
+	font-size: 0.75em;
+}

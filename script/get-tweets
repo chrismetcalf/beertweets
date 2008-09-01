@@ -1,0 +1,98 @@
+#!/usr/bin/env ruby
+# Pull down replies and load them in the DB
+
+
+require 'yaml'
+require 'rubygems'
+require 'rest-open-uri'
+require 'rexml/document'
+
+RAILS_ROOT = ENV['RAILS_ROOT'].dup
+RAILS_ENV  = ENV['RAILS_ENV'].dup || 'development'
+
+require "#{RAILS_ROOT}/config/environment"
+
+# Pull config
+config = YAML.load_file("#{RAILS_ROOT}/config/twitter.yml")[RAILS_ENV]
+if config.nil?
+puts "Could not find config for env \"#{RAILS_ENV}\""
+exit 1
+end
+
+username = config['username']
+password = config['password']
+
+# If we've previously made requests, get everything since then
+max_id = Tweet.maximum(:twitter_id)
+since = nil
+if !max_id.nil?
+  since = "?since_id=#{max_id}"
+end
+
+# Make the HTTPS request
+response = open("http://twitter.com/statuses/replies.xml#{since}",
+              :http_basic_authentication => [username, password])
+
+# Pull out the XML and turn it into a document
+xml = response.read    
+document = REXML::Document.new(xml)
+
+# For each tweet, store it away
+REXML::XPath.each(document, '/statuses/status') do |e|
+  t_id = e.elements["id"].text
+
+  # Check to see if we've encountred this tweet before
+  t = Tweet.find(:first, :conditions => {:twitter_id => t_id})
+  if !t.nil?
+    # Skip it, we've seen it
+    puts "Already seen \"#{t.text[0..15]}...\""
+    next
+  else
+    t = Tweet.new
+  end
+
+  # Hasn't been loaded yet
+  t.twitter_id = t_id
+  t.tweeted_at = Time.parse(e.elements["created_at"].text)
+  t.source = e.elements["source"].text
+
+  # The text. We'll remove the @username
+  t.text = e.elements["text"].text.gsub(/@#{username}/, "").strip
+
+  ## Parse out things from the tweet
+  rating = t.text.match(/\*+/)
+  if !rating.nil?
+    t.rating = rating[0]
+  end
+
+  cost = t.text.match(/\$\d+(\.\d{2})?/)
+  if !cost.nil?
+    t.cost = cost[0]
+  end
+
+  # Deal with the author
+  user = e.elements["user"]
+  user_id = user.elements["id"].text
+  a = Author.find(:first, :conditions => {:id => user_id})
+  if a.nil?
+    # New author. Create them
+    a = Author.new   
+  end
+
+  # Whether they're new or not we update their record
+  a.twitter_id = user_id
+  a.screen_name = user.elements["screen_name"].text
+  a.name = user.elements["name"].text
+  a.description = user.elements["description"].text
+  a.url = user.elements["url"].text
+  a.location = user.elements["location"].text
+  a.image_url = user.elements["profile_image_url"].text
+
+  # Map this author to the tweet
+  t.author = a
+
+  # Push them to the DB
+  puts "Added \"#{t.text}\" from #{a.screen_name}"
+  a.save
+  t.save
+end

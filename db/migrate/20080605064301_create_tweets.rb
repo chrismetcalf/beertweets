@@ -1,13 +1,19 @@
 class CreateTweets < ActiveRecord::Migration
   def self.up
     create_table :tweets do |t|
-      t.integer :twitter_id, :null => false     # twitter's ID for this tweet
-      t.timestamp :created_at                   # when this tweet was posted
-      t.string :text, :null => false            # the text of this tweet
-      t.string :source                          # the application source of this tweet
-      t.integer :rating                         # a 1-5 star rating
-
-      t.integer :author_id, :null => false      # author ID for this tweet
+      # Values from Twitter
+      t.integer     :twitter_id, :null => false       # twitter's ID for this tweet
+      t.timestamp   :tweeted_at, :null => false       # when this tweet was posted
+      t.string      :text, :null => false             # the text of this tweet
+      t.string      :source                           # the application source of this tweet
+      t.integer     :in_reply_to                      # which tweet this was in reply to
+      
+      # Parsed values
+      t.integer     :rating                           # a 1-5 star rating
+      t.float       :cost                             # cost (currently USD only) 
+      
+      # Foreign keys
+      t.integer     :author_id, :null => false        # author ID for this tweet
 
       t.timestamps
     end
