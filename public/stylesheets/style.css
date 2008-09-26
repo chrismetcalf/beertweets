@@ -37,16 +37,6 @@ h3 {
 	margin: .75em auto;
 }
 
-ul.chat, ul.chat li {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-p.reblog {
-	font-size: .69em;
-}
-
 h3#navi {
 	text-align: center;
 }
@@ -56,8 +46,16 @@ p#meta {
 	text-align: center;
 }
 
-img.author_image {
+.author_image {
+	float: left;
+}
+
+.author_image img {
 	border: none;
+}
+
+.meta {
+	font-size: .69em;
 }
 
 .author_name {
