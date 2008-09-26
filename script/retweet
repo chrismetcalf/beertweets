@@ -1,0 +1,109 @@
+#!/usr/bin/env ruby
+
+# == Synopsis
+#
+# hello: greets user, demonstrates command line parsing
+#
+# == Usage
+#
+# hello [OPTION] ... DIR
+#
+# -h, --help:
+#    show help
+#
+# --repeat x, -n x:
+#    repeat x times
+#
+# --name [name]:
+#    greet user by name, if name not supplied default is John
+#
+# DIR: The directory in which to issue the greeting.
+
+require 'yaml'
+require 'rubygems'
+require 'rest-open-uri'
+require 'rexml/document'
+require 'getoptlong'
+require 'rdoc/usage'
+
+# Set up our default logger
+logger = Logger.new(STDOUT)
+logger.level = Logger::INFO
+
+opts = GetoptLong.new(
+  [ '--help',         '-h', GetoptLong::NO_ARGUMENT ],
+  [ '--verbose',      '-v', GetoptLong::NO_ARGUMENT ],
+  [ '--quiet',        '-q', GetoptLong::NO_ARGUMENT ],
+  [ '--config',       '-c', GetoptLong::REQUIRED_ARGUMENT ],
+  [ '--test',         '-t', GetoptLong::NO_ARGUMENT ],
+  [ '--sleep',        '-s', GetoptLong::REQUIRED_ARGUMENT ]
+)
+
+# Parse our config
+config_file = "#{RAILS_ROOT}/config/twitter.yml"
+testing = false
+sleep_time = 15
+opts.each do |opt, arg|
+  case opt
+  when '--help'
+    RDoc::usage
+    
+  when '--verbose'
+    logger.level = Logger::DEBUG
+    logger.debug "Log level set to DEBUG"
+    
+  when '--quiet'
+    logger.level = Logger::FATAL
+    
+  when '--config'
+    config_file = arg
+
+  when '--test'
+    testing = true
+    
+  when '--sleep'
+    sleep_time = arg.to_i
+    
+  end
+end
+
+# Pull config
+config = YAML.load_file(config_file)[RAILS_ENV]
+if config.nil?
+  logger.fatal "Could not find config for env \"#{RAILS_ENV}\". Exiting."
+  exit 1
+end
+
+username = config['username']
+password = config['password']
+
+# Loop through tweets that haven't been retweeted yet
+tweets = Tweet.find(:all, :conditions => {:retweeted => false}, :order => "tweeted_at ASC")
+tweets.each do |tweet| 
+  logger.debug "Retweeting: #{tweet.inspect}"
+  
+  retweet = "Via @#{tweet.author.screen_name}: #{tweet.text}"
+  logger.debug "Retweeting: \"#{retweet}\""
+  request = "status=#{CGI::escape retweet}&in_reply_to_status_id=#{tweet.twitter_id}"
+  logger.debug "Request: \"#{request}\""
+  
+  if !testing
+    # Make the HTTPS request, pull out the XML and turn it into a document
+    response = open("http://twitter.com/statuses/update.xml?#{request}",
+                    :method => :post,
+                    :http_basic_authentication => [username, password])
+    xml = response.read    
+    document = REXML::Document.new(xml)
+    
+    logger.debug "Recieved XML: #{xml.inspect}"
+    
+    # If this retweet was succesful, mark it as such
+    tweet.retweeted = true
+    tweet.save
+    
+    # Sleep between requests
+    sleep(sleep_time)
+  end
+end
+
+

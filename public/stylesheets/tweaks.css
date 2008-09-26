@@ -1,0 +1,118 @@
+
+
+/* Body 
+----------------------------------------------- */
+
+/* Navigation
+----------------------------------------------- */
+body.beertweets #navigation {
+	background: #005850;
+	color: #fff;
+	padding-left: 10px;
+	border: 1px solid #ccc;
+}
+
+body.beertweets #navigation a:link, body.beertweets #navigation a:active, body.beertweets #navigation a:visited { 
+	color: #fff; 
+}
+
+body.beertweets #navigation a:hover { 
+	color: #e59900; 
+}
+
+body.beertweets #wrapper .nav-current:link, body.beertweets #wrapper .nav-current:visited, body.beertweets #wrapper .nav-current:active { 
+	color: #e59900; 
+}
+
+body.beertweets #navigation div.secondary {
+	width: 195px;
+	float: left;
+}
+
+/* Content
+----------------------------------------------- */
+body.beertweets { 
+	font-family: Verdana, Helvetica, Arial, sans-serif; 
+	font-size: 76%; 
+	line-height: 120%; 
+	color: #404040; 
+	background: #fff; 
+}
+
+body.beertweets code { 
+	color: #bf8060; 
+}
+
+body.beertweets abbr, body.beertweets acronym { 
+	border-bottom: 1px solid #bf8060; 
+}
+		
+
+body.beertweets .tweet {
+	font-size: 1.0em;
+	line-height: 110%;
+}
+
+body.beertweets .tweet-meta {
+	font-size: 0.8em;
+	line-height: 110%;
+}
+		
+
+/* Headers
+--------------------------------------- */
+body.beertweets #blog-title { 
+	font-family: Verdana, Helvetica, Arial, sans-serif; 
+}
+
+body.beertweets #tagline { 
+	font-family: Verdana, Helvetica, Arial, sans-serif; 
+}
+
+body.beertweets h1, h2, h3, h4, h5, h6, body.beertweets .entry .title { 
+	font-family: Verdana, Helvetica, Arial, sans-serif; 
+}
+
+/* Post content
+--------------------------------------- */
+body.beertweets .articlenav { 
+	background: #fcfeff; 
+}
+
+/* Inserts
+--------------------------------------- */
+body.beertweets .insert { 
+	background: #fcfeff; 
+	margin: 0 0 1em 0; 
+	border: 1px solid #cfdde5; 
+	padding: 9px; 
+}
+
+body.beertweets .insert h3 { 
+	border-bottom: 1px solid #005850; 
+}
+		
+/* Downloads
+--------------------------------------- */		
+body.beertweets .content a.download:link, body.beertweets .content a.download:visited, body.beertweets .content a.download:active { 
+	background-color: #fcfeff; 
+	border: 1px solid #cfdde5; 
+}
+
+/* Images
+--------------------------------------- */
+body.beertweets a img { 
+	border: 1px solid #0f6b99; 
+}
+body.beertweets a:hover img, body.beertweets .comment a:hover .avatar { 
+	border: 1px solid #e59900; 
+}
+		
+/* Links
+----------------------------------------------- */
+body.beertweets a:link, body.beertweets a:active, body.beertweets a:visited { color: #005850; }
+body.beertweets a:hover { color: #e59900; }
+
+body.beertweets .content a:link, body.beertweets .content a:active, body.beertweets .content a:visited, body.beertweets .link-pages a:link, body.beertweets .link-pages a:active, body.beertweets .link-pages a:visited, body.beertweets .tagdata a:link, body.beertweets .tagdata a:active, body.beertweets .tagdata a:visited, body.beertweets .widget_tag_cloud a:link, body.beertweets .widget_tag_cloud a:active, body.beertweets .widget_tag_cloud a:visited { border-bottom: 1px solid #cfdde5; }
+body.beertweets .content a:hover, body.beertweets .link-pages a:hover, body.beertweets .tagdata a:hover, body.beertweets .widget_tag_cloud a:hover { border-bottom: 1px solid #e59900; }
+
