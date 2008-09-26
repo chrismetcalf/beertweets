@@ -31,10 +31,10 @@ logger = Logger.new(STDOUT)
 logger.level = Logger::INFO
 
 opts = GetoptLong.new(
-  [ '--help',     '-h', GetoptLong::NO_ARGUMENT ],
-  [ '--verbose',  '-v', GetoptLong::NO_ARGUMENT ],
-  [ '--quiet',    '-q', GetoptLong::NO_ARGUMENT ],
-  [ '--config',   '-c', GetoptLong::REQUIRED_ARGUMENT ]
+  [ '--help',         '-h', GetoptLong::NO_ARGUMENT ],
+  [ '--verbose',      '-v', GetoptLong::NO_ARGUMENT ],
+  [ '--quiet',        '-q', GetoptLong::NO_ARGUMENT ],
+  [ '--config',       '-c', GetoptLong::REQUIRED_ARGUMENT ]
 )
 
 # Parse our config
@@ -53,7 +53,7 @@ opts.each do |opt, arg|
     
   when '--config'
     config_file = arg
-    
+
   end
 end
 
@@ -98,6 +98,7 @@ REXML::XPath.each(document, '/statuses/status') do |e|
   t.twitter_id = t_id
   t.tweeted_at = Time.parse(e.elements["created_at"].text)
   t.source = e.elements["source"].text
+  t.retweeted = false
 
   # The text. We'll remove the @username
   t.text = e.elements["text"].text.gsub(/@#{username}/, "").strip

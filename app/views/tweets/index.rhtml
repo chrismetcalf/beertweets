@@ -1,12 +1,18 @@
-<% @tweets.each do |tweet| %>
-<div class="tweet">
-  <div class="author_image">
-    <a href="http://twitter.com/<%= tweet.author.screen_name %>"><img src="<%= tweet.author.image_url %>" alt="<% tweet.author.screen_name %>" /></a>
-  </div>
+<table>
+  <% @tweets.each do |tweet| %>
+    <tr>
+      <td>
+        <a href="http://twitter.com/<%= tweet.author.screen_name %>"><img src="<%= tweet.author.image_url %>" alt="@<%= tweet.author.screen_name %>" /></a><br />
+      </td>
+      <td>
+        <div class="tweet">
+          <a href="http://twitter.com/<%= tweet.author.screen_name %>" class="author">@<%= tweet.author.screen_name %></a>: <%= tweet.text %>
+        </div><!-- /content -->
 
-  <div class="message"><%= tweet.text %></div><br/>
-  <div class="meta">
-    From <%= tweet.author.screen_name %> @ <%= tweet.tweeted_at %> &middot;
-  </div>
-</div>
+        <div class="tweet-meta">
+          <p class="metadata"><span class="date updated"><%= tweet.tweeted_at %></span>
+        </div><!-- /meta -->
+      </td>
+    </tr>
 <% end %>
+</table>

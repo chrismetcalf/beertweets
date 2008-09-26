@@ -14,6 +14,9 @@ class CreateTweets < ActiveRecord::Migration
       
       # Foreign keys
       t.integer     :author_id, :null => false        # author ID for this tweet
+      
+      # Process info
+      t.boolean     :retweeted, :default => false     # whether or not this tweet has been retweeted
 
       t.timestamps
     end

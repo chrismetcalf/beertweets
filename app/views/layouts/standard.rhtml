@@ -1,25 +1,68 @@
-<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”>		
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-  <head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en-US">
+  <head profile="http://gmpg.org/xfn/11">
     <title>@beertweets - we drink and microblog so you don't have to</title>
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+
     <%= stylesheet_link_tag "style" %>
+    <%= stylesheet_link_tag "screen" %>
+    <%= stylesheet_link_tag "tweaks" %>
   </head>
-  <body>
-    <div id="wrapper">    
-      <h1 id="title"><a href="/">@beertweets</a></h1>
-      <h2 id="subtitle">we drink and microblog so you don't have to</h2>
+  
+  <body id="home" class="centre janus beertweets">
+    <div id="wrapper">
+      <div id="header">
+        <div id="header-image"><img alt="@beertweets" src="/images/pint_glass.jpg" /></div>
+        <div id="navigation" class="clearfix">
+          <ul class="primary xoxo">
+            <li><a class="nav-current" href="http://beertweets.com" rel="home">Home</a></li>
+            <li><a href="http://twitter.com/beertweets/">On Twitter</a></li>
+          </ul><!-- /primary -->
 
+          <div class="secondary">
+  	        <!--<p><a class="feed" href="http://chrismetcalf.net/blog/feed/">Subscribe to feed</a></p>-->
+          </div><!-- /secondary -->
+        </div><!-- /navigation -->
+      </div><!-- /header -->
 
+      <div id="content" class="clearfix">
+  		  <div class="primary posts">
+          <%= yield %>
+  		  </div><!-- /primary -->
+		
+        <div id="sidebar" class="secondary">
+  			  <div class="widget widget_text">
+  			    <h3>What is This?</h3>
+  			    <div class="textwidget">
+  			      <p><a href="http://beertweets.com">@beertweets</a> is the world's only social-beer-reviewing Twitter bot. Tweet your mini-beer reviews <a href="http://twitter.com/beertweets">@beertweets</a> and they'll automatically be added to our database.</p>
+
+              <p>As our beer review database grows, we'll be providing helpful ways to you to discover new beers and to connect with beer lovers like you. In the meantime, follow <a href="http://twitter.com/beertweets">beertweets</a> to receive reviews tweeted by other users.</p>
+            </div><!-- /textwidget -->
+          </div><!-- /widget -->
+          
+          <div class="widget widget_text">
+  			    <h3>Suggested Review Format</h3>
+  			    <div class="textwidget">
+  			      <p>To make your mini-reviews easier for our bot to parse, we suggest the following format:</p>
+  			      
+              <p><em>@beertweets Brewery "Beer Name" *** $7/12oz Light amber in color, with a lacy head. Hoppy with a bit of citrus. http://url.com/link</em></p>
+
+              <p>If you follow that format, we'll automatically pick up the brewery, beer name, your 1-5 "*" review, dollar value, and any links. Thanks for helping!</p>
+            </div><!-- /textwidget -->
+          </div><!-- /widget -->
+        </div><!-- /sidebar -->
     
-      <div id="content">
-        <%= yield %>
-      </div>
-    
-      <p id="meta">
-        <a href="/archive">Archive</a> &middot;
-        <a href="/rss">RSS</a> &middot;
-        Theme by <a href="http://novembird.com/themes/">Novembird</a>
-      </p>
+      </div><!-- /content -->
+
+      <div id="footer" class="clearfix">
+        <div class="secondary">
+          a <a href="http://chrismetcalf.net/">chrismetcalf.net</a> production 
+        </div><!-- /secondary -->
+        
+        <div class="primary">
+          <!-- Content goes here -->
+        </div><!-- /primary -->
+      </div><!-- /footer -->
     </div>
   </body>
 </html>
